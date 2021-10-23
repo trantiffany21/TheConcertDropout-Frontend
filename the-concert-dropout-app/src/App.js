@@ -4,7 +4,7 @@ import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
 import Navigation from './Navigation'
-
+import './style.css'
 function App() {
   return (
     <div>

@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root {
+    --roboto: 'Roboto', sans-serif;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--roboto);
+}
+
+/* Core */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Utility classes */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-heading {
+    font-size: 3rem;
+}
+
+.primary-text {
+    font-size: 1.75rem;
+    padding: .5rem 0 .75rem 0;
+}
+
+.secondary-text {
+    font-size: 1.3rem;
+    padding: 0rem 0 .75rem 0;
+}
+
+.btn-primary {
+    color: #fff;
+    padding: .4rem 2rem;
+    text-align: center;
+    background: rgb(184, 53, 103);
+    transition: .3s all;
+}
+
+.btn-primary:hover {
+    background: rgb(241, 51, 124);
+}
+
+.btn-secondary {
+    text-align: center;
+    padding: .4rem 2rem;
+    background: #fff;
+    color: #111;
+    transition: .3s all;
+}
+
+.btn-secondary:hover {
+    background: #000;
+    color: #fff;
+}
+
+.back-text {
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+    padding: .5rem 2rem;
+    font-size: .8rem;
+    border-right: 3px solid #eee;
+    border-left: 3px solid #eee;
+    border-radius: 20px;
+    margin: 1.2rem 0;
+}
+
+.signup-text,
+.login-text {
+    text-decoration: underline;
+}
+
+/* Section: top-hero-text-container */
+#top-hero-text {
+    height: 100vh;
+}
+
+#top-hero-text .top-hero-text-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+#top-hero-text .top-hero-text-container {
+    position: relative;
+    height: 100%;
+    /* background: url('/images//hero-background.jpg') no-repeat center center/cover; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 1;
+}
+
+#top-hero-text .top-hero-text-container .texts {
+    text-align: center;
+}
+
+#top-hero-text .top-hero-text-container .buttons {
+    padding-top: .7rem;
+}
+
+/* login */
+#login,
+#register {
+    padding: 3rem 1rem;
+}
+
+#login .login-container,
+#register .register-container  {
+    z-index: 100;
+    /* margin-top: 3rem; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+#login .login-container .main-login-area,
+#register .register-container .main-register-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+#login .login-container .main-login-area .login-view,
+#register .register-container .main-register-area .register-view {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.2rem 2rem;
+    height: 85vh;
+}
+
+#login .login-container .main-login-area .login-view .texts p,
+#register .register-container .main-register-area .register-view .texts p {
+    padding: 1.2rem 0;
+}
+
+/* #login .login-container .main-login-area .image-view {
+    background: url('/images/login-image.jpg') no-repeat center center/cover;
+}
+
+#register .register-container .main-register-area .image-view {
+    background: url('/images/register-image.jpg') no-repeat center center/cover;
+} */
+
+#login .login-container .main-login-area .login-view form .input-group,
+#register .register-container .main-register-area .register-view form .input-group  {
+    display: flex;
+    flex-direction: column;
+    padding: .75rem 0;
+}
+
+#login .login-container .main-login-area .login-view form .input-group label,
+#register .register-container .main-register-area .register-view form .input-group label {
+    padding-bottom: .5rem;
+}
+
+#login .login-container .main-login-area .login-view form .input-group input,
+#register .register-container .main-register-area .register-view form .input-group input  {
+    font-size: 1.2rem;
+    padding: .2rem .3rem;
+    outline: none;
+    font-family: var(--roboto);
+    border: 1px solid #ebebeb;
+}
+
+#login .login-container .main-login-area .login-view form .input-group input[type="submit"],
+#register .register-container .main-register-area .register-view form .input-group input[type="submit"] {
+    background: rgb(24, 125, 226);
+    color: #fff;
+    cursor: pointer;
+    padding: .45rem;
+    transition: .3s all;
+    border-radius: 30px;
+}
+
+#login .login-container .main-login-area .login-view form .input-group input[type="submit"]:hover,
+#register .register-container .main-register-area .register-view form .input-group input[type="submit"]:hover {
+    background: rgb(19, 133, 247);
+}
+
+#login .login-container .main-login-area .login-view form div:last-child,
+#register .register-container .main-register-area .register-view form div:last-child {
+    text-align: center;
+}
+
+/* For smaller devices */
+@media screen and (max-width: 965px) {
+    .main-heading {
+        font-size: 2rem;
+    }
+
+    .primary-text {
+        font-size: 1.45rem;
+    }
+
+    .secondary-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    #login .login-container .main-login-area,
+    #register .register-container .main-register-area {
+        grid-template-columns: 1fr;
+    }
+
+    #login .login-container .main-login-area .image-view,
+    #register .register-container .main-register-area .image-view {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 620px) {
+    .main-heading {
+        font-size: 1.7rem;
+    }
+
+    .primary-text {
+        font-size: 1.2rem;
+    }
+
+    .secondary-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .main-heading {
+        font-size: 1.5rem;
+    }
+
+    .primary-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .secondary-text {
+        font-size: .9rem;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 445px) {
+    .main-heading {
+        font-size: 1.2rem;
+    }
+
+    .primary-text {
+        font-size: 1rem;
+    }
+
+    .secondary-text {
+        font-size: .6rem;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    #top-hero-text .top-hero-text-container .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #top-hero-text .top-hero-text-container .buttons a {
+        display: inline-block;
+        margin: .3rem 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    #login .login-container .main-login-area .login-view {
+        height: 100%;
+    }
+}
