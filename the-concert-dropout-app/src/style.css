@@ -66,15 +66,15 @@ a {
 }
 
 .back-text {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
-    display: inline-block;
+    display: block;
     padding: .5rem 2rem;
     font-size: .8rem;
     border-right: 3px solid #eee;
     border-left: 3px solid #eee;
     border-radius: 20px;
-    margin: 1.2rem 0;
+    margin: 2rem 0;
 }
 
 .signup-text,
@@ -101,7 +101,7 @@ a {
 #top-hero-text .top-hero-text-container {
     position: relative;
     height: 100%;
-    /* background: url('/images//hero-background.jpg') no-repeat center center/cover; */
+    background: url('images/hero-background.jpg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,7 +127,7 @@ a {
 #login .login-container,
 #register .register-container  {
     z-index: 100;
-    /* margin-top: 3rem; */
+    margin-top: 3rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 }
 
@@ -152,13 +152,13 @@ a {
     padding: 1.2rem 0;
 }
 
-/* #login .login-container .main-login-area .image-view {
-    background: url('/images/login-image.jpg') no-repeat center center/cover;
+#login .login-container .main-login-area .image-view {
+    background: url('images/login-image.jpg') no-repeat center center/cover;
 }
 
 #register .register-container .main-register-area .image-view {
-    background: url('/images/register-image.jpg') no-repeat center center/cover;
-} */
+    background: url('images/register-image.jpg') no-repeat center center/cover;
+}
 
 #login .login-container .main-login-area .login-view form .input-group,
 #register .register-container .main-register-area .register-view form .input-group  {
