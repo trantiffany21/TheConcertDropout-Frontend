@@ -9,7 +9,7 @@ class SignupPage extends Component {
                     <div class="image-view"></div>
                     <div class="register-view">
                         <div class="texts">
-                            <a href="index.html" class="back-text"><i class="fa fa-arrow-left"></i>&nbsp; back to home</a>
+                            <a href="/" class="back-text"><i class="fa fa-arrow-left"></i>&nbsp; back to home</a>
                             <h1>Register</h1>
                             <p>Create an account to browse into the largest evergreen songs library !</p>
                         </div>
@@ -30,7 +30,7 @@ class SignupPage extends Component {
                                 <input type="submit" value="Register"></input>
                             </div>
                             <div class="input-group">
-                                <p>Already have an account ? Wanna<a href="login.html" class="login-text">&nbsp;Login ?</a></p>
+                                <p>Already have an account ? Wanna<a href="login" class="login-text">&nbsp;Login ?</a></p>
                             </div>
                         </form>
                     </div>

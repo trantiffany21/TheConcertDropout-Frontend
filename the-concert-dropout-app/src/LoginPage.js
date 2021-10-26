@@ -8,7 +8,7 @@ class LoginPage extends Component {
                 <div class="main-login-area">
                     <div class="login-view">
                         <div class="texts">
-                            <a href="index.html" class="back-text"><i class="fa fa-arrow-left"></i>&nbsp; back to home</a>
+                            <a href="/" class="back-text"><i class="fa fa-arrow-left"></i>&nbsp; back to home</a>
                             <h1>Login</h1>
                             <p>Please login to access your music library...</p>
                         </div>
@@ -29,7 +29,7 @@ class LoginPage extends Component {
                                 <input type="submit" value="Login"></input>
                             </div>
                             <div class="input-group">
-                                <p>Don't have an account ? <a href="signup.html" class="signup-text">&nbsp;Sign up</a> here...</p>
+                                <p>Don't have an account ? <a href="signup" class="signup-text">&nbsp;Sign up</a> here...</p>
                             </div>
                         </form>
                     </div>

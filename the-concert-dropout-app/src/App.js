@@ -8,7 +8,7 @@ import './style.css'
 function App() {
   return (
     <div>
-      <Navigation />
+      {/* <Navigation /> */}
       <Route exact path='/' component={HomePage} />
       <Route exact path='/login' component={LoginPage} />
       <Route exact path='/signup' component={SignupPage} />
