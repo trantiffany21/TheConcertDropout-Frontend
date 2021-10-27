@@ -36,11 +36,18 @@ export default class NewForm extends Component {
         }).then(data => {
             console.log("api fetch performer result: " , data.performers)
             let performerResult = data.performers.filter(performer => {
-                if(performer.name.toLowerCase().includes(name.toLowerCase())){
-                    return performer
+              let skip = false
+              this.props.currentPerformers.forEach(currentPerformer =>{
+                if(currentPerformer.id === performer.id){
+                  skip = true
                 }
+              })
+              if(performer.name.toLowerCase().includes(name.toLowerCase()) && !skip){
+                return performer
+              }
             })
             console.log("api fetch similar performer result: " , performerResult)
+
             this.setState({
                 searchResult: performerResult
             }) 
@@ -77,39 +84,37 @@ export default class NewForm extends Component {
 
   render() {
       console.log("results: ", this.state.searchResult)
+      console.log("this.props.currentPerformers: ", this.props.currentPerformers)
     return (
         <>
-        <div className="user-form">
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="name">Name: </label>
-                <input type="text" id="name" name="name" onChange={ (e) => this.handleChange(e)} value={this.state.name} />
-                <input className="btn-info" type="submit" placeholder="Performer's name" value="Search for performer" />
-            </form>
+          <form onSubmit={this.handleSubmit}>
+              <label htmlFor="name">Name: </label>
+              <input type="text" id="name" name="name" onChange={ (e) => this.handleChange(e)} value={this.state.name} />
+              <input className="btn-info" type="submit" placeholder="Performer's name" value="Search for performer" />
+          </form>
 
-            {this.state.searchResult.length > 0 &&
-            <table className="user-table table table-hover w-75">
-                <thead>
-                    <tr className="row row-cols-3">
-                        <th className=" table-primary col">Performer Name</th>
-                        <th className=" table-primary col">Type: </th>
-                        <th className=" table-primary col"> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.searchResult.map((performer, i) =>{
-                        return(
-                            <tr className="row" key={performer.id}>
-                                <td className="table-light col">{performer.name}</td>
-                                <td className="table-light col">{performer.type}</td>
-                                <td className="table-light col"><button className="btn-secondary" onClick={() =>this.addPerformerToUser(performer)}>Add Artist</button></td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            }
-        
-        </div>
+          {this.state.searchResult.length > 0 &&
+          <table className="user-table table table-hover w-75">
+              <thead>
+                  <tr className="row row-cols-3">
+                      <th className=" table-primary col">Performer Name</th>
+                      <th className=" table-primary col">Type: </th>
+                      <th className=" table-primary col"> </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {this.state.searchResult.map((performer, i) =>{
+                      return(
+                          <tr className="row" key={performer.id}>
+                              <td className="table-light col">{performer.name}</td>
+                              <td className="table-light col">{performer.type}</td>
+                              <td className="table-light col"><button className="btn-secondary" onClick={() =>this.addPerformerToUser(performer)}>Add Artist</button></td>
+                          </tr>
+                      )
+                  })}
+              </tbody>
+          </table>
+          }
       </>
     )
   }
