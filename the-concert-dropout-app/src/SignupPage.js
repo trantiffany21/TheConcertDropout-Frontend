@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 class SignupPage extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             redirect: false
         }
@@ -39,7 +38,7 @@ class SignupPage extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to='/' />
+            return <Redirect to='/login' />
         } else {
             return (
                 <div id="register">

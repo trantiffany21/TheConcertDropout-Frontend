@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 class LoginPage extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             redirect: false
         }
@@ -28,6 +27,9 @@ class LoginPage extends Component {
         .then(data => {
                 this.setState({ redirect: true })
                 this.props.setUser(data)
+                this.setState({
+                    redirect: true
+                })
         })
     }
 

@@ -31,15 +31,17 @@ class App extends Component {
     return (
       <div>
         <Route exact path='/' component={HomePage} />
+
         <Route exact path='/login' render={() => {
           return <LoginPage setUser={this.setUserInfo} />
         }} />
+
         <Route exact path='/signup' render={() => {
           return <SignupPage setUser={this.setUserInfo} />
         }} />
         <Route exact path='/user' render={() => {
           if (this.state.loggedIn) {
-            //<User />
+            //<User id={this.state.id} performers={this.state.performers}/>
           } else {
             return <Redirect to='/' />
           }
