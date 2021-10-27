@@ -25,7 +25,6 @@ class LoginPage extends Component {
         }).then(res => {
             return res.json()})
         .then(data => {
-                this.setState({ redirect: true })
                 this.props.setUser(data)
                 this.setState({
                     redirect: true
@@ -41,7 +40,7 @@ class LoginPage extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to='/' />
+            return <Redirect to='/user' />
         } else {
             return (
                 <div id="login">

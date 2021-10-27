@@ -3,6 +3,8 @@ import { Route, Redirect } from 'react-router-dom'
 import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
+import Navigation from './Navigation'
+import UserPage from './UserPage'
 import './style.css'
 
 class App extends Component {
@@ -41,7 +43,7 @@ class App extends Component {
         }} />
         <Route exact path='/user' render={() => {
           if (this.state.loggedIn) {
-            //<User id={this.state.id} performers={this.state.performers}/>
+            return <UserPage username={this.state.username} id={this.state.id} performers={this.state.performers}/>
           } else {
             return <Redirect to='/' />
           }
