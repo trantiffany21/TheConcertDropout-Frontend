@@ -12,25 +12,10 @@ class UserPage extends Component {
             apikey: "&client_id=" + process.env.REACT_APP_SEATGEEK_API_KEY,
             sessionSecret: "&client_secret=" + process.env.REACT_APP_SECRET_SESSION,
             query: 'performers.id=',
-            performers: [],
+            performers: this.props.performers,
             searchUrl: '',
         }
     }
-
-    // getUser = () =>{
-    //     fetch(baseUrl + '/users',{
-    //         credentials:"include"
-    //     })
-    //     .then(res =>{
-    //         if(res.status === 200){
-    //             return res.json()
-    //         }else{
-    //             return []
-    //         }
-    //     }).then(data => {
-    //         console.log(data)
-    //     })
-    // }
 
     getEvents = () =>{
         let performerIds = this.state.performers.map(id => id.id)
@@ -65,9 +50,10 @@ class UserPage extends Component {
         return(
             <>
                 <h1>Hello {this.props.username}!</h1>
+                <div className="user-form">
                 <h2>Your performers:</h2>
-                {this.props.performers.length > 0 &&
-                <table className="user-table table table-hover w-75">
+                {this.state.performers.length > 0 &&
+                <table className="user-table scroll table table-hover w-75">
                     <thead>
                         <tr className="row row-cols-3">
                             <th className=" table-primary col">Performer Name</th>
@@ -76,7 +62,7 @@ class UserPage extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.performers.map((performer, i) =>{
+                        {this.state.performers.map((performer, i) =>{
                             return(
                                 <tr className="row" key={performer.id}>
                                     <td className="table-light col">{performer.name}</td>
@@ -89,8 +75,8 @@ class UserPage extends Component {
                 </table>
                 }
 
-                <NewPerformer baseUrl={baseUrl} apiUrl={this.state.apiUrl} apikey={this.state.apikey} addPerformer={this.addPerformer}/>
-
+                <NewPerformer baseUrl={baseUrl} apiUrl={this.state.apiUrl} apikey={this.state.apikey} addPerformer={this.addPerformer} currentPerformers={this.state.performers}/>
+                </div>
             </>
         )
     }
