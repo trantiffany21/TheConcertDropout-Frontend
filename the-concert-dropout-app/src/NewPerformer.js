@@ -66,12 +66,12 @@ export default class NewForm extends Component {
     }).then( res => {
         return res.json()
     }).then( data => {
-      // console.log(data)
-      this.props.addPerformer(data)
+      this.props.addPerformer(data.performers[data.performers.length-1])
       this.setState({
         id: '',
         name: '', 
-        type: ''
+        type: '',
+        searchResult: []
       })
     }).catch (error => console.error({'Error': error}))
   }
@@ -83,8 +83,6 @@ export default class NewForm extends Component {
 
 
   render() {
-      console.log("results: ", this.state.searchResult)
-      console.log("this.props.currentPerformers: ", this.props.currentPerformers)
     return (
         <>
           <form onSubmit={this.handleSubmit}>
@@ -94,19 +92,19 @@ export default class NewForm extends Component {
           </form>
 
           {this.state.searchResult.length > 0 &&
-          <table className="user-table table table-hover w-75">
+          <table className="user-table table w-75">
               <thead>
                   <tr className="row row-cols-3">
-                      <th className=" table-primary col">Performer Name</th>
-                      <th className=" table-primary col">Type: </th>
-                      <th className=" table-primary col"> </th>
+                      <th className=" col">Performer Name</th>
+                      <th className="  col">Type: </th>
+                      <th className="  col"> </th>
                   </tr>
               </thead>
               <tbody>
                   {this.state.searchResult.map((performer, i) =>{
                       return(
                           <tr className="row" key={performer.id}>
-                              <td className="table-light col">{performer.name}</td>
+                              <td className="table-light col-sm">{performer.name}</td>
                               <td className="table-light col">{performer.type}</td>
                               <td className="table-light col"><button className="btn-secondary" onClick={() =>this.addPerformerToUser(performer)}>Add Artist</button></td>
                           </tr>
