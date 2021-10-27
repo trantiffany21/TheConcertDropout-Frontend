@@ -1,0 +1,17 @@
+.head{
+    font-weight: 900;
+}
+
+h5{
+    font-weight: 800;
+}
+
+.headOne {
+  font-weight: bold;
+  color: black;
+}
+
+.headTwo {
+  padding-left: 4px;
+  color: #e93b38;
+}

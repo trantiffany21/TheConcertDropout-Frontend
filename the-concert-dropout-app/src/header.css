@@ -1,0 +1,58 @@
+.navContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #222;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+  overflow: hidden;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brandOne {
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+
+.brandTwo {
+  padding-left: 4px;
+  color: #e93b38;
+  font-size: x-large;
+}
+
+.navUl {
+  display: flex;
+  list-style-type: none;
+}
+
+.parent {
+  padding: 0 10px;
+  opacity: 1;
+  color: white;
+}
+
+.parent:last-child {
+  margin-left: 30px;
+}
+
+.navigate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  /* font-size: large; */
+}
+
+.navigate:hover {
+  color: #e93b38;
+}

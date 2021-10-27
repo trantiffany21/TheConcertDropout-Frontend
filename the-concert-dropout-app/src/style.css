@@ -26,6 +26,20 @@ a {
     margin: auto;
 }
 
+.top-heading{
+    font-size: 4rem;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
+
+.top-heading .headingOne{
+    color: white;
+}
+
+.top-heading .headingTwo{
+    color: #e93b38;
+}
+
 .main-heading {
     font-size: 3rem;
 }
