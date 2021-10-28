@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import Header from './Header'
+import Footer from './Footer'
 
 class SignupPage extends Component {
     constructor(props) {
@@ -41,6 +43,8 @@ class SignupPage extends Component {
             return <Redirect to='/login' />
         } else {
             return (
+                <>
+                <Header />
                 <div id="register">
                     <div className="container register-container">
                         <div className="main-register-area">
@@ -75,6 +79,8 @@ class SignupPage extends Component {
                         </div>
                     </div>
                 </div>
+                <Footer />
+                </>
             )
         }
     }

@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import "./style.css";
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "./Footer"
+import Header from "./Header"
+
 class HomePage extends Component {
   render() {
     return (
@@ -40,7 +41,7 @@ class HomePage extends Component {
         </div>
         <Footer />
       </>
-    );
+    )
   }
 }
 
