@@ -10,6 +10,13 @@ const Header = () => {
           <span className="brandTwo">Dropout</span>
         </div>
       </Link>
+      <ul class="navUl">
+        <li class="parent">
+          <Link to="/editUser" className="navigate">
+            Edit account
+          </Link>
+        </li>
+      </ul>
     </nav>
   );
 };
