@@ -1,33 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
-const Header = () => {
 
-  
 
-  return (
-    <nav class="navContainer">
-      <Link to="/">
-        <div className="brand">
-          <span className="brandOne">The Concert</span>
-          <span className="brandTwo">Dropout</span>
-        </div>
-      </Link>
+class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.state ={
 
-      <ul class="navUl">
-        <li class="parent">
-          <Link to="/editUser" className="navigate">
-            Edit account
-          </Link>
-          <Link to='/' onClick={() => {
-            fetch(`${process.env.REACT_APP_BASEURL}/users/logout`)
-          }}>
-            Log Out
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  );
+    }
+  }
+  render() {
+    console.log(this.props.loggedIn)
+    return (
+      <nav class="navContainer">
+        <Link to="/">
+          <div className="brand">
+            <span className="brandOne">The Concert</span>
+            <span className="brandTwo">Dropout</span>
+          </div>
+        </Link>
+        <ul class="navUl">
+          <li class="parent">
+            <Link hidden={!this.props.loggedIn} to="/editUser" className="navigate">
+              Edit account
+            </Link>
+            <Link hidden={!this.props.loggedIn} to='/' onClick={() => {
+              fetch(`${process.env.REACT_APP_BASEURL}/users/logout`)
+                .then(res => res.json())
+                .then(data => console.log(data))
+            }}>
+              Log Out
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
 };
 
 export default Header;

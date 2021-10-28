@@ -4,10 +4,17 @@ import Footer from "./Footer"
 import Header from "./Header"
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
   render() {
+    console.log(this.props.loggedIn)
     return (
       <>
-        <Header />
+        <Header loggedIn={this.props.loggedIn} />
         <div>
           {/* <!-- Section: top-hero-text --> */}
           <section id="top-hero-text">

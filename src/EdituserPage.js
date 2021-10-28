@@ -45,12 +45,13 @@ class EdituserPage extends Component {
 
 
     render() {
+        console.log(this.props.loggedIn)
         if (this.state.redirect) {
             return <Redirect to='/user' />
         } else {
             return (
                 <>
-                <Header />
+                <Header loggedIn={this.props.loggedIn} />
                 <div id="register">
                     <div className="container register-container">
                         <div className="main-register-area">

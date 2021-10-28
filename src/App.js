@@ -33,26 +33,26 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route exact path='/' component={HomePage} />
+        <Route exact path='/' loggedIn={this.state.loggedIn} component={HomePage} />
 
         <Route exact path='/login' render={() => {
-          return <LoginPage setUser={this.setUserInfo} />
+          return <LoginPage loggedIn={this.state.loggedIn} setUser={this.setUserInfo} />
         }} />
 
         <Route exact path='/signup' render={() => {
-          return <SignupPage setUser={this.setUserInfo} />
+          return <SignupPage loggedIn={this.state.loggedIn} setUser={this.setUserInfo} />
         }} />
 
         <Route exact path='/user' render={() => {
           if (this.state.loggedIn) {
-            return <UserPage username={this.state.username} id={this.state.id} performers={this.state.performers} />
+            return <UserPage loggedIn={this.state.loggedIn} username={this.state.username} id={this.state.id} performers={this.state.performers} />
           } else {
             return <Redirect to='/' />
           }
         }} />
 
         <Route exact path='/editUser' render={() => {
-          return <EdituserPage username={this.state.username} id={this.state.id} email={this.state.email} setUser={this.setUserInfo} />
+          return <EdituserPage loggedIn={this.state.loggedIn} username={this.state.username} id={this.state.id} email={this.state.email} setUser={this.setUserInfo} />
         }} />
       </div>
     )

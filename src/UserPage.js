@@ -106,7 +106,7 @@ class UserPage extends Component {
         const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
         return(
             <>
-            <Header />
+            <Header loggedIn={this.props.loggedIn} />
             <h1>Hello {this.props.username}!</h1>
               <div className="dropdown" onClick={this.toggleOpen}>
                 <button
