@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 
@@ -79,4 +80,4 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage
+export default LoginPage;
