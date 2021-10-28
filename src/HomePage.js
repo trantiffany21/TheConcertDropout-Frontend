@@ -18,14 +18,14 @@ class HomePage extends Component {
               </h1>
               <div class="texts">
                 <h1 class="main-heading">
-                  Get peaceful state of mind from the music
+                  The place to get your favorite events, concerts, and more.
                 </h1>
                 <p class="primary-text">
-                  With over 10's of original evergreen songs on the go...
+                Something that the kids is goin love when they hear it.
+                <br></br>Thats goin' make them start jumping up and down and sharing candy an' stuff.
                 </p>
                 <p class="secondary-text">
-                  Search your favorite music with the best ever music-based
-                  search engine.
+                  - Kanye West (Ye) The College Dropout.
                 </p>
               </div>
               <div class="buttons">

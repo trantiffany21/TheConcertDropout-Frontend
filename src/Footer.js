@@ -12,8 +12,7 @@ const Footer = () => {
             <div>
               <h2 className="head"><span className="headOne">The Concert </span><span className="headTwo">Dropout</span></h2>
               <p>
-                The place to get your mind at peace. Listen to the music and go
-                with the flow.
+                The place to get your favorite events, concerts, and more. 
               </p>
               <p>
                 © 2021 The Concert Droupout. All Rights Reserved.

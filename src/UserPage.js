@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import NewPerformer from './NewPerformer'
+import Header from './Header'
+import Footer from './Footer'
 import './style.css'
 
 let baseUrl = process.env.REACT_APP_BASEURL
@@ -14,25 +16,31 @@ class UserPage extends Component {
             sessionSecret: "&client_secret=" + process.env.REACT_APP_SECRET_SESSION,
             query: 'performers.id=',
             performers: [],
+            events: [],
             searchUrl: '',
             userPageState: 'performers',
             redirectHome: false
         }
     }
 
-    getEventsAll = () =>{
+    getEventsAll = async () => {
         let performerIds = this.state.performers.map(id => id.id)
         console.log("test: " + performerIds)
-        // console.log(this.state.apiUrl + this.state.query + performerIds.join(',') + this.state.apikey )
-        fetch(this.state.apiUrl + this.state.query + performerIds.join(',') + this.state.apikey)
-        .then(res => {
-            return res.json()
-        }).then(data =>{
-            console.log("events: " + data)
+        console.log(this.state.apiUrl + this.state.query + performerIds.join(',') + this.state.apikey )
+        try{
+          const response = await fetch(this.state.apiUrl + this.state.query + performerIds.join(',') + this.state.apikey )
+          const data = await response.json()
+          console.log(response)
+          if(response.status ===200){
             this.setState({
-                events: data
+              events: data.events
             })
-        })
+            console.log(this.state.events)
+          }
+        
+      }catch(err){
+        console.log('Error => ', err)
+      }
     }
 
     getPerformers = async (username) =>{
@@ -104,6 +112,7 @@ class UserPage extends Component {
         const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
         return(
             <>
+            <Header />
             <h1>Hello {this.props.username}!</h1>
               <div className="dropdown" onClick={this.toggleOpen}>
                 <button
@@ -153,16 +162,25 @@ class UserPage extends Component {
                     }
                 </div>
                 }
-                {/* {this.state.userPageState === 'events' &&
-                <ul>
-                    {this.state.events.map(event => {
-                        return event.id
+                {this.state.userPageState === 'events' &&
+                
+                    this.state.events.map(event => {
+                        return (
+                          <ul>
+                            <li>Date: {event.datetime_local.substring(0,10)}</li>
+                            <li>Event: {event.short_title}</li>
+                            <li>Performers: 
+                              {event.performers.map(performer => {return <li>{performer.name}</li>})}
+                            </li>
+                            <li>@ the {event.venue.name}</li>
+                          </ul>
+                        )
                     })
-                    }
-                </ul>
+                    
                 
-                } */}
                 
+                }
+                <Footer />
             </>
         )}
     }
