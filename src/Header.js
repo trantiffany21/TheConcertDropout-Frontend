@@ -10,19 +10,6 @@ const Header = () => {
           <span className="brandTwo">Dropout</span>
         </div>
       </Link>
-
-      <ul class="navUl">
-        <li class="parent">
-          <Link to="/signup" className="navigate">
-            Sign UP
-          </Link>
-        </li>
-        <li class="parent">
-          <Link to="/login" className="navigate">
-            Login
-          </Link>
-        </li>
-      </ul>
     </nav>
   );
 };
