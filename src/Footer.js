@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./footer.css";
+import sgLogo from './images/SeatGeek_Primary.png'
 
 const Footer = () => {
   return (
-    <footer class="section" style={{ backgroundColor: "#fff" }}>
+    <footer className="section" style={{ backgroundColor: "#fff" }}>
         <hr />
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
             <div>
               <h2 className="head"><span className="headOne">The Concert </span><span className="headTwo">Dropout</span></h2>
               <p>
@@ -20,7 +21,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div class="col-md-4">
+          <div className="col-md-4">
             <h5>Contacts</h5>
             <dl>
               <dt>Email:</dt>
@@ -33,16 +34,8 @@ const Footer = () => {
           </div>
           <div className="col">
             <h5>Links</h5>
-            <ul class="nav-list">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">Log-in</Link>
-              </li>
-              <li>
-                <Link to="/signup">Sign Up</Link>
-              </li>
+            <ul className="nav-list">
+              <li><a href='https://www.seatgeek.com'>Seat Geak</a><img id='sgLogo' src={sgLogo} alt='seat geek logo'></img></li>
             </ul>
           </div>
         </div>
