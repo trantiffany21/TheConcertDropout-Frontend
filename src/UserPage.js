@@ -15,7 +15,8 @@ class UserPage extends Component {
             query: 'performers.id=',
             performers: [],
             searchUrl: '',
-            userPageState: 'performers'
+            userPageState: 'performers',
+            redirectHome: false
         }
     }
 
@@ -34,19 +35,24 @@ class UserPage extends Component {
         })
     }
 
-    getPerformers = (username) =>{
-        fetch(baseUrl + "/users/" + username,{
+    getPerformers = async (username) =>{
+        try{fetch(baseUrl + "/users/" + username,{
             credentials: "include"
           })
           .then(res => {
             if(res.status === 200) {
               return res.json()
             } else {
-              return []
+              return [{performers:''}]
             }
           }).then(data => {
+            console.log(data)
             this.setState({ performers: data[0].performers })
           })
+        }catch(err){
+          this.setState({redirectHome: true})
+          console.log('Error =>' + err)
+        }
     }
 
     addPerformer = (newPerformer) =>{
@@ -92,6 +98,9 @@ class UserPage extends Component {
 
 
     render(){
+      if(this.state.redirectHome){
+        return <Redirect to='/login' />
+      }
         const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
         return(
             <>
