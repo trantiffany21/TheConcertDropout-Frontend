@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
-
 let baseUrl = process.env.REACT_APP_BASEURL
 
 class LoginPage extends Component {
