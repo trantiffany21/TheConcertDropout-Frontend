@@ -13,13 +13,8 @@ const Header = () => {
 
       <ul class="navUl">
         <li class="parent">
-          <Link to="/signup" className="navigate">
-            Sign UP
-          </Link>
-        </li>
-        <li class="parent">
-          <Link to="/login" className="navigate">
-            Login
+          <Link to="/editUser" className="navigate">
+            Edit account
           </Link>
         </li>
       </ul>
