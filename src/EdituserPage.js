@@ -19,7 +19,8 @@ class EdituserPage extends Component {
             body: JSON.stringify({
                 username: this.state.username,
                 password: this.state.password,
-                email: this.state.email
+                email: this.state.email,
+                id: this.props.id
             }),
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +46,6 @@ class EdituserPage extends Component {
 
 
     render() {
-        console.log(this.props.loggedIn)
         if (this.state.redirect) {
             return <Redirect to='/user' />
         } else {
