@@ -104,9 +104,9 @@ export default class NewForm extends Component {
                   {this.state.searchResult.map((performer, i) =>{
                       return(
                           <tr className="row" key={performer.id}>
-                              <td className="table-light col-sm">{performer.name}</td>
+                              <td className="table-light col">{performer.name}</td>
                               <td className="table-light col">{performer.type}</td>
-                              <td className="table-light col"><button className="btn-secondary" onClick={() =>this.addPerformerToUser(performer)}>Add Artist</button></td>
+                              <td className="table-light col"><button className="btn-outline-success rounded-pill" onClick={() =>this.addPerformerToUser(performer)}>Add Artist</button></td>
                           </tr>
                       )
                   })}
