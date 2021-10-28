@@ -9,7 +9,8 @@ class LoginPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            redirect: false
+            redirect: false,
+            redirectLogin: false
         }
     }
 
@@ -28,13 +29,23 @@ class LoginPage extends Component {
             },
             credentials: "include"
         }).then(res => {
-            return res.json()
-        })
-            .then(data => {
-                this.props.setUser(data)
-                this.setState({
-                    redirect: true
-                })
+            console.log(res.status)
+            if(res.status === 202) {
+                return res.json()
+              } else {
+                return null
+              }
+        }).then(data => {
+                if(data){
+                    console.log(data)
+                    this.props.setUser(data)
+                    this.setState({
+                        redirect: true
+                    })
+                }else{
+                    this.setState({redirectLogin:true})
+                }
+                
             })
     }
 
@@ -47,7 +58,9 @@ class LoginPage extends Component {
     render() {
         if (this.state.redirect) {
             return <Redirect to='/user' />
-        } else {
+        } else if(this.state.redirectLogin){
+            return <Redirect to='/' />
+        }
             return (
                 <>
                     <Header />
@@ -84,8 +97,6 @@ class LoginPage extends Component {
                     <Footer />
                 </>
             )
-        }
     }
 }
-
 export default LoginPage;
