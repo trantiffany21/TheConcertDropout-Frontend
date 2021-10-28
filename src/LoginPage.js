@@ -16,7 +16,7 @@ class LoginPage extends Component {
 
     onSubmit = (event) => {
         console.log('hit')
-
+        console.log(baseUrl)
         event.preventDefault()
         fetch(baseUrl + '/users/login', {
             method: 'POST',
