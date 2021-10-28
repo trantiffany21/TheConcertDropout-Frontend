@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
+let baseUrl = process.env.REACT_APP_BASEURL
+
 class SignupPage extends Component {
     constructor(props) {
         super(props)
@@ -13,7 +15,7 @@ class SignupPage extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3003/users/signup', {
+        fetch(baseUrl + '/users/signup', {
             method: 'POST',
             body: JSON.stringify({
                 username: this.state.username,

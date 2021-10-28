@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 import NewPerformer from './NewPerformer'
 import './style.css'
 
-let baseUrl = 'http://localhost:3003'
+let baseUrl = process.env.REACT_APP_BASEURL
 
 class UserPage extends Component {
     constructor(props){

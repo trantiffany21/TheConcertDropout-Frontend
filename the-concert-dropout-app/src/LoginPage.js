@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
+let baseUrl = process.env.REACT_APP_BASEURL
+
 class LoginPage extends Component {
     constructor(props) {
         super(props)
@@ -16,7 +18,7 @@ class LoginPage extends Component {
         console.log('hit')
 
         event.preventDefault()
-        fetch('http://localhost:3003/users/login', {
+        fetch(baseUrl + '/users/login', {
             method: 'POST',
             body: JSON.stringify({
                 username: this.state.username,
