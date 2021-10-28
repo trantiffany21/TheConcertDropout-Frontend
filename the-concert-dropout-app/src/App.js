@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom'
 import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
-import Navigation from './Navigation'
 import UserPage from './UserPage'
 import './style.css'
 
