@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import NewPerformer from './NewPerformer'
 import './style.css'
+import Header from './Header'
+import Footer from './Footer'
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -104,6 +106,7 @@ class UserPage extends Component {
         const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
         return(
             <>
+            <Header />
             <h1>Hello {this.props.username}!</h1>
               <div className="dropdown" onClick={this.toggleOpen}>
                 <button
@@ -162,7 +165,7 @@ class UserPage extends Component {
                 </ul>
                 
                 } */}
-                
+                <Footer />
             </>
         )}
     }

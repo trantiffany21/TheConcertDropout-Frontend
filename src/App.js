@@ -24,7 +24,7 @@ class App extends Component {
     this.setState({
       username: user.username,
       id: user._id,
-      email: user._email,
+      email: user.email,
       performers: user.performers,
       loggedIn: true
     })
@@ -52,7 +52,7 @@ class App extends Component {
         }} />
 
         <Route exact path='/editUser' render={() => {
-          return <EdituserPage username={this.state.username} id={this.state.id} performers={this.state.performers} setUser={this.setUserInfo} />
+          return <EdituserPage username={this.state.username} id={this.state.id} email={this.state.email} setUser={this.setUserInfo} />
         }} />
       </div>
     )

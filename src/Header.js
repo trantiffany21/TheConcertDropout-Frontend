@@ -2,6 +2,9 @@ import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 const Header = () => {
+
+  
+
   return (
     <nav class="navContainer">
       <Link to="/">
@@ -15,6 +18,11 @@ const Header = () => {
         <li class="parent">
           <Link to="/editUser" className="navigate">
             Edit account
+          </Link>
+          <Link to='/' onClick={() => {
+            fetch(`${process.env.REACT_APP_BASEURL}/users/logout`)
+          }}>
+            Log Out
           </Link>
         </li>
       </ul>
