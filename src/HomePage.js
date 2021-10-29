@@ -18,28 +18,28 @@ class HomePage extends Component {
         <div>
           {/* <!-- Section: top-hero-text --> */}
           <section id="top-hero-text">
-            <div class="top-hero-text-container">
+            <div className="top-hero-text-container">
               <h1 className="top-heading">
                 <span className="headingOne">THE CONCERT </span>
                 <span className="headingTwo">DROPOUT</span>
               </h1>
-              <div class="texts">
-                <h1 class="main-heading">
+              <div className="texts">
+                <h1 className="main-heading">
                   Get peaceful state of mind from the music
                 </h1>
-                <p class="primary-text">
+                <p className="primary-text">
                   With over 10's of original evergreen songs on the go...
                 </p>
-                <p class="secondary-text">
+                <p className="secondary-text">
                   Search your favorite music with the best ever music-based
                   search engine.
                 </p>
               </div>
-              <div class="buttons">
-                <a href="login" class="btn-primary">
+              <div className="buttons">
+                <a href="login" className="btn-primary">
                   Login
                 </a>
-                <a href="signup" class="btn-secondary">
+                <a href="signup" className="btn-secondary">
                   Register
                 </a>
               </div>
