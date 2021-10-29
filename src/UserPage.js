@@ -73,6 +73,24 @@ class UserPage extends Component {
         console.log("this.state.performers: ", this.state.performers)
     }
 
+    viewPerformer = async (id) =>{
+        console.log(this.state.apiUrl + this.state.query + id + this.state.apikey )
+        try{
+          const response = await fetch(this.state.apiUrl + this.state.query + id + this.state.apikey )
+          const data = await response.json()
+          console.log(response)
+          if(response.status ===200){
+            this.setState({
+              events: data.events
+            })
+            this.setUserPageState('events')
+          }
+        
+      }catch(err){
+        console.log('Error => ', err)
+      }
+    }
+
     deletePerformer = (id) => {
         // console.log(performer)
         fetch(baseUrl + '/users/removeArtist/', {
@@ -136,11 +154,12 @@ class UserPage extends Component {
                     <NewPerformer baseUrl={baseUrl} apiUrl={this.state.apiUrl} apikey={this.state.apikey} addPerformer={this.addPerformer} currentPerformers={this.state.performers}/>
                     <h2>Your performers:</h2>
                     {this.state.performers.length > 0 &&
-                    <table className="user-table table w-75">
+                    <table className="user-table table w-75 vertical-align">
                         <thead>
                             <tr className="row row-cols-3">
                                 <th className=" table-primary col">Performer Name</th>
-                                <th className=" table-primary col">Type: </th>
+                                <th className=" table-primary col-sm-2">Type: </th>
+                                <th className=" table-primary col-sm-2"> </th>
                                 <th className=" table-primary col-sm-2"> </th>
                             </tr>
                         </thead>
@@ -149,8 +168,13 @@ class UserPage extends Component {
                                 return(
                                     <tr className="row" key={performer.id}>
                                         <td className="table-light col">{performer.name}</td>
-                                        <td className="table-light col">{performer.type}</td>
-                                        <td className="table-light col-sm-2"><button className="btn-outline-danger rounded" onClick={() =>this.deletePerformer(performer.id)}>Remove</button></td>
+                                        <td className="table-light col-sm-2">{performer.type}</td>
+                                        <td className="table-light col-sm-2">
+                                        <button className="btn-outline-info btn-events" onClick={() =>this.viewPerformer(performer.id)}>View Events</button>
+                                        </td>
+                                        <td className="table-light col-sm-2">
+                                          <button className="btn-outline-danger btn-events" onClick={() =>this.deletePerformer(performer.id)}>Remove</button>
+                                          </td>
                                         
                                     </tr>
                                 )
@@ -168,14 +192,14 @@ class UserPage extends Component {
                           <div className="card">
                               <div className="card-body">
                               <h6 className="card-title">{event.short_title}</h6>
-                              <img className="card-img-top img-thumbnail" src={event.performers[0].image} alt="Performer image"/>
+                              <img className="card-img-top img-thumbnail" src={event.performers[0].image} alt="Performer"/>
                               <p className="card-text">Date: {event.datetime_local.substring(0,10)}</p>
                               <p className="card-text">Performers:</p>
                                 {event.performers.map((performer,i) => {return <li className="list-unstyled card-text text-muted px-1">
                                 {performer.name}</li>})}
                               <p className="card-text">@ the {event.venue.name}</p>
                               <p className="card-text">{event.venue.display_location}</p>
-                              <a href={event.url} target="_blank"><button className="btn-ticket btn-sm">Tickets</button></a>
+                              <a href={event.url} target="_blank" rel="noreferrer"><button className="btn-ticket btn-sm">Tickets</button></a>
                               </div>
                             </div>
                     </section>
