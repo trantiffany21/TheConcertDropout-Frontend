@@ -2,6 +2,13 @@
 :root {
     --roboto: 'Roboto', sans-serif;
 }
+.quote{
+    width: 50%;
+    display:flex;
+    align-content: flex-end;
+    flex-direction: column;
+    font-style: oblique;
+}
 /*user page styling */
 .user-form{
     display:flex;

@@ -34,6 +34,7 @@ const Footer = () => {
             <h5>Links</h5>
             <ul className="nav-list">
               <li><a href='https://www.seatgeek.com'>Seat Geak</a><img id='sgLogo' src={sgLogo} alt='seat geek logo'></img></li>
+              <li><a href='https://kanye.rest/'>Kanye Rest</a></li>
             </ul>
           </div>
         </div>
