@@ -25,7 +25,7 @@ class Header extends Component {
             <Link hidden={!this.props.loggedIn} to="/editUser" className="navigate">
               Edit account
             </Link>
-            <Link hidden={!this.props.loggedIn} to='/' onClick={() => {
+            <Link hidden={!this.props.loggedIn} to='/' className="navigate" onClick={() => {
               fetch(`${process.env.REACT_APP_BASEURL}/users/logout`)
                 .then(res => res.json())
                 .then(data => console.log(data))

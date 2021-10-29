@@ -4,8 +4,6 @@ import NewPerformer from './NewPerformer'
 import Header from './Header'
 import Footer from './Footer'
 import './style.css'
-import Header from './Header'
-import Footer from './Footer'
 
 let baseUrl = process.env.REACT_APP_BASEURL
 
@@ -129,7 +127,7 @@ class UserPage extends Component {
                   View My Performers
                   </button>
                   <button className="dropdown-item" onClick={() => {this.setUserPageState('events');this.getEventsAll();}} >
-                  View My Upcoming Events
+                  View All Upcoming Events
                   </button>
                 </div>
               </div>
