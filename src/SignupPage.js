@@ -47,7 +47,7 @@ class SignupPage extends Component {
         } else {
             return (
                 <>
-                <Header />
+                <Header loggedIn={this.props.loggedIn} />
                 <div id="register">
                     <div className="container register-container">
                         <div className="main-register-area">

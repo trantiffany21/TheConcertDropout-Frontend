@@ -63,7 +63,7 @@ class LoginPage extends Component {
         }
             return (
                 <>
-                    <Header />
+                    <Header loggedIn={this.props.loggedIn} />
                     <div id="login">
                         <div className="container login-container">
                             <div className="main-login-area">
