@@ -4,14 +4,21 @@ import Footer from "./Footer"
 import Header from "./Header"
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
   render() {
+    console.log(this.props.loggedIn)
     return (
       <>
-        <Header />
+        <Header loggedIn={this.props.loggedIn} />
         <div>
           {/* <!-- Section: top-hero-text --> */}
           <section id="top-hero-text">
-            <div class="top-hero-text-container">
+            <div className="top-hero-text-container">
               <h1 className="top-heading">
                 <span className="headingOne">THE CONCERT </span>
                 <span className="headingTwo">DROPOUT</span>
@@ -28,11 +35,11 @@ class HomePage extends Component {
                   - Kanye West (Ye) The College Dropout.
                 </p>
               </div>
-              <div class="buttons">
-                <a href="login" class="btn-primary">
+              <div className="buttons">
+                <a href="login" className="btn-primary">
                   Login
                 </a>
-                <a href="signup" class="btn-secondary">
+                <a href="signup" className="btn-secondary">
                   Register
                 </a>
               </div>
