@@ -60,7 +60,13 @@ h6.card-title{
 .btn-ticket:hover {
       color:white;
       background: #1ECD97;
-    }
+}
+.btn-events{
+    height:30px;
+    width:100px;
+    border-radius:40px;
+    font-size: .9em;
+}
 /* Reset */
 * {
     margin: 0;
