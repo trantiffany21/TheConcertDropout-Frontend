@@ -8,11 +8,60 @@
     flex-direction: column;
     align-items: center;
 }
+.px-1{
+    text-indent: 25px;
+}
 .dropdown{
     display:flex;
     justify-content: flex-end;
     margin: 0 20px 20px 0;
 }
+.card-group{
+    display:flex;
+    justify-content: space-around;
+}
+.card-img-top{
+    height:100px;
+    width:100px;
+    float:right;
+}
+.card{
+    width: 300px;
+    height: 300px;
+    overflow:scroll;
+}
+p.card-text, li.card-text{
+    margin:0;
+    font-size:.8em;
+}
+h6.card-title{
+    font-weight: bolder;
+}
+
+.cards-wrap{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn-ticket {
+    outline:none;
+    height: 30px;
+    text-align: center;
+    width: 100px;
+    border-radius:40px;
+    background: #fff;
+    border: 2px solid #1ECD97;
+    color:#1ECD97;
+    letter-spacing:1px;
+    text-shadow:0;
+    margin:5px;
+    float:bottom;
+}
+.btn-ticket:hover {
+      color:white;
+      background: #1ECD97;
+    }
 /* Reset */
 * {
     margin: 0;

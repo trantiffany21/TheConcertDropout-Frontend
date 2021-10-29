@@ -83,8 +83,6 @@ class UserPage extends Component {
           },
         credentials: "include"
       }).then( res => {
-        // console.log(res)
-        // if I checked for a 200 response code
         const findIndex = this.state.performers.findIndex(performer => performer.id === id)
         const copyPerformers = [...this.state.performers]
         copyPerformers.splice(findIndex, 1)
@@ -162,28 +160,35 @@ class UserPage extends Component {
                     }
                 </div>
                 }
-                {this.state.userPageState === 'events' &&
-                
+                <div className="cards-wrap">
+                {this.state.userPageState === "events" &&
                     this.state.events.map(event => {
-                        return (
-                          <ul>
-                            <li>Date: {event.datetime_local.substring(0,10)}</li>
-                            <li>Event: {event.short_title}</li>
-                            <li>Performers: 
-                              {event.performers.map(performer => {return <li>{performer.name}</li>})}
-                            </li>
-                            <li>@ the {event.venue.name}</li>
-                          </ul>
+                      return (
+                        <section className="card-group">
+                          <div className="card">
+                              <div className="card-body">
+                              <h6 className="card-title">{event.short_title}</h6>
+                              <img className="card-img-top img-thumbnail" src={event.performers[0].image} alt="Performer image"/>
+                              <p className="card-text">Date: {event.datetime_local.substring(0,10)}</p>
+                              <p className="card-text">Performers:</p>
+                                {event.performers.map((performer,i) => {return <li className="list-unstyled card-text text-muted px-1">
+                                {performer.name}</li>})}
+                              <p className="card-text">@ the {event.venue.name}</p>
+                              <p className="card-text">{event.venue.display_location}</p>
+                              <a href={event.url} target="_blank"><button className="btn-ticket btn-sm">Tickets</button></a>
+                              </div>
+                            </div>
+                    </section>
                         )
-                    })
-                    
-                
-                
-                }
+                      })
+                    }
+                  </div>
                 <Footer />
             </>
         )}
-    }
-
-
-export default UserPage
+      }
+      
+      
+      export default UserPage
+      
+                                  //insert the url for buying tickets!
