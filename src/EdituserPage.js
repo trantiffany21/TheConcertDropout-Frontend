@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
-class EdituserPage extends Component {
+class EditUserPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,7 +13,6 @@ class EdituserPage extends Component {
     }
 
     onSubmit = (event) => {
-        console.log('hit')
         event.preventDefault()
         fetch(`${process.env.REACT_APP_BASEURL}/users/editUser`, {
             method: 'PUT',
@@ -25,14 +24,15 @@ class EdituserPage extends Component {
             }),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials:"include"
         }).then(res => {
             return res.json()
         })
             .then(data => {
-                console.log("Data: " + data)
                 this.setState({ redirect: true })
-                this.props.setUser(data)
+                // this.props.setUser(data)
+                this.props.clearUser()
             })
     }
 
@@ -40,11 +40,9 @@ class EdituserPage extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(this.state)
     }
 
     deleteAcc = () => {
-        console.log(this.props.id)
         fetch(`${process.env.REACT_APP_BASEURL}/users/delete`, {
             method: 'DELETE',
             body: JSON.stringify({
@@ -52,28 +50,15 @@ class EdituserPage extends Component {
             }),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials:"include"
         }).then(res => {
             return res.json()
         })
             .then(data => {
-                console.log("Data: " + data)
-                this.setState({ redirect: true })
+                this.setState({ redirect: true})
+                this.props.clearUser()
             })
-
-        // fetch(`${process.env.REACT_APP_BASEURL}/users/delete`, {
-        //     method: 'DELETE',
-        //     body: JSON.stringify({
-        //         username: this.state.oldUsername
-        //     })
-        // }).then(res => {
-        //     return res.json()
-        // })
-        //     .then(data => {
-        //         console.log('ye')
-        //         console.log(data)
-        //         this.setState({ redirect: true })
-        //     })
     }
 
     render() {
@@ -124,4 +109,4 @@ class EdituserPage extends Component {
     }
 }
 
-export default EdituserPage
+export default EditUserPage

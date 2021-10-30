@@ -31,7 +31,7 @@ class SignupPage extends Component {
         })
             .then(data => {
                 this.setState({ redirect: true })
-                this.props.setUser(data)
+                // this.props.setUser(data)
             })
     }
 

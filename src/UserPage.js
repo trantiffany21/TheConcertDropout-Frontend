@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import {Redirect } from 'react-router-dom'
 import NewPerformer from './NewPerformer'
 import Header from './Header'
 import Footer from './Footer'
@@ -25,17 +25,14 @@ class UserPage extends Component {
 
     getEventsAll = async () => {
         let performerIds = this.state.performers.map(id => id.id)
-        console.log("test: " + performerIds)
         console.log(this.state.apiUrl + this.state.query + performerIds.join(',') + this.state.apikey )
         try{
           const response = await fetch(this.state.apiUrl + this.state.query + performerIds.join(',') + this.state.apikey )
           const data = await response.json()
-          console.log(response)
           if(response.status ===200){
             this.setState({
               events: data.events
             })
-            console.log(this.state.events)
           }
         
       }catch(err){
@@ -54,7 +51,6 @@ class UserPage extends Component {
               return [{performers:''}]
             }
           }).then(data => {
-            console.log(data)
             this.setState({ performers: data[0].performers })
           })
         }catch(err){
@@ -64,13 +60,11 @@ class UserPage extends Component {
     }
 
     addPerformer = (newPerformer) =>{
-        console.log("here " + newPerformer)
         const copyPerformers = [...this.state.performers]
         copyPerformers.push(newPerformer)
         this.setState({
             performers: copyPerformers
         })
-        console.log("this.state.performers: ", this.state.performers)
     }
 
     viewPerformer = async (id) =>{
@@ -78,7 +72,6 @@ class UserPage extends Component {
         try{
           const response = await fetch(this.state.apiUrl + this.state.query + id + this.state.apikey )
           const data = await response.json()
-          console.log(response)
           if(response.status ===200){
             this.setState({
               events: data.events
@@ -92,7 +85,6 @@ class UserPage extends Component {
     }
 
     deletePerformer = (id) => {
-        // console.log(performer)
         fetch(baseUrl + '/users/removeArtist/', {
         method: 'DELETE',
         body:JSON.stringify({id:id}),
@@ -195,7 +187,7 @@ class UserPage extends Component {
                               <img className="card-img-top img-thumbnail" src={event.performers[0].image} alt="Performer"/>
                               <p className="card-text">Date: {event.datetime_local.substring(0,10)}</p>
                               <p className="card-text">Performers:</p>
-                                {event.performers.map((performer,i) => {return <li className="list-unstyled card-text text-muted px-1">
+                                {event.performers.map((performer,i) => {return <li key={performer.name} className="list-unstyled card-text text-muted px-1">
                                 {performer.name}</li>})}
                               <p className="card-text">@ the {event.venue.name}</p>
                               <p className="card-text">{event.venue.display_location}</p>
