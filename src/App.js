@@ -4,7 +4,7 @@ import HomePage from './HomePage'
 import LoginPage from './LoginPage'
 import SignupPage from './SignupPage'
 import UserPage from './UserPage'
-import EdituserPage from './EdituserPage'
+import EditUserPage from './EditUserPage'
 
 import './style.css'
 
@@ -27,6 +27,15 @@ class App extends Component {
       email: user.email,
       performers: user.performers,
       loggedIn: true
+    })
+  }
+  clearUser = () => {
+    this.setState({
+      username: '',
+      id: '',
+      email: '',
+      performers: [],
+      loggedIn: false
     })
   }
 
@@ -52,7 +61,7 @@ class App extends Component {
         }} />
 
         <Route exact path='/editUser' render={() => {
-          return <EdituserPage loggedIn={this.state.loggedIn} username={this.state.username} id={this.state.id} email={this.state.email} setUser={this.setUserInfo} />
+          return <EditUserPage loggedIn={this.state.loggedIn} username={this.state.username} id={this.state.id} email={this.state.email} setUser={this.setUserInfo} clearUser={this.clearUser} />
         }} />
       </div>
     )

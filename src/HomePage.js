@@ -39,7 +39,6 @@ class HomePage extends Component {
 
 
   render() {
-    console.log(this.props.loggedIn)
     return (
       <>
         <Header loggedIn={this.props.loggedIn} />

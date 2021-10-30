@@ -11,17 +11,16 @@ class Header extends Component {
     }
   }
   render() {
-    console.log(this.props.loggedIn)
     return (
-      <nav class="navContainer">
+      <nav className="navContainer">
         <Link to="/">
           <div className="brand">
             <span className="brandOne">The Concert</span>
             <span className="brandTwo">Dropout</span>
           </div>
         </Link>
-        <ul class="navUl">
-          <li class="parent">
+        <ul className="navUl">
+          <li className="parent">
             <Link hidden={!this.props.loggedIn} to="/editUser" className="navigate">
               Edit account
             </Link>
