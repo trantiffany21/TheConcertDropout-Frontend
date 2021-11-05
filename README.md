@@ -4,7 +4,9 @@
 
 ## Contributors
 > Tiffany Tran: https://github.com/trantiffany21
+> 
 > Cristian Camacho: https://github.com/CristianCamacho
+> 
 > Abdul Davis: https://github.com/knowid
 
 ## Project Description
